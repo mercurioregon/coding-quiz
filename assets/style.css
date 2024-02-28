@@ -1,0 +1,54 @@
+.pageContent{
+    max-width: 550px;
+    margin: auto;
+    padding: 10px;
+
+}
+
+
+
+.opening {
+    margin:0;
+    padding:0;
+    font-family: "Georgia",  serif;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* .opening h1 {
+    
+    /* text-align: center;
+    margin: 125px;
+    max-width: 600px;
+    box-sizing: border-box;
+    
+    padding-top: 25% ; */
+/* } */ 
+
+body {
+    font-family: Georgia;
+    font-size: 100%;
+    color: darkgreen;
+    background-color: navajowhite;
+
+}
+.quizMain {
+    color-scheme: dark;
+    color:gray;
+    font-size: larger;
+    
+}
+.btn {
+    background-color: whitesmoke;
+    color: black;
+    width: 50%;
+    padding: 5px;
+    margin: 10px 0;
+    text-align: left;
+
+}
+.btn:hover{
+    background-color: darkgreen;
+    color:whitesmoke;
+    
+}
