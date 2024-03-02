@@ -41,3 +41,22 @@ body {
 .answer-buttons{
     text-align: center;
 }
+
+.correct{
+    background: greenyellow;
+}
+.incorrect{
+    background: darkred;
+
+}
+ .next-btn{
+    text-align: center;
+    border-radius: 5px;
+    flex-direction: column;
+    padding: 5px;
+    margin: 10px 0;
+    box-sizing: border-box;
+
+
+  
+}
