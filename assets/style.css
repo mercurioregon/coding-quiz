@@ -46,7 +46,7 @@ body {
     background: greenyellow;
 }
 .incorrect{
-    background: darkred;
+    background: rgb(202, 11, 11);
 
 }
  .next-btn{
@@ -54,9 +54,8 @@ body {
     border-radius: 5px;
     flex-direction: column;
     padding: 5px;
-    margin: 10px 0;
-    box-sizing: border-box;
+    margin: 0 auto;
+    display:block;
 
 
-  
 }

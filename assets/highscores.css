@@ -1,0 +1,9 @@
+.container{
+    font-family: Georgia;
+    font-size: 100%;
+    color: darkgreen;
+    background-color: navajowhite;
+    box-sizing: border-box;
+    text-align: center;
+    flex-direction: column;
+}
