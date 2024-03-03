@@ -21,16 +21,52 @@ const questions = [
         ]
     },
     {
-        question: "Which of the folllowing would make the dumbest header?",
+        question: "The beaches of what U.S. state where the inspiration for 'Dune'?",
         answers: [
-              { text: "thsrth", correct: false},  
-              { text: "op", correct: false},
-              { text: "tanc", correct: false} ,
-              { text: "blurchk", correct: true},     
+              { text: "Hawaii", correct: false},  
+              { text: "Oregon", correct: true},
+              { text: "California", correct: false} ,
+              { text: "North Carolina", correct: false},     
         ]
     },
     {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
+        question: "Who invented the flux capacitor?",
+        answers: [
+              { text: 'Anakin Skywalker', correct: false},  
+              { text: "James T. Kirk", correct: false},
+              { text: "Tony Stark", correct: false} ,
+              { text: "Emmitt Brown", correct: true}, 
+        ]
+    },
+    {
+        question: "Which one of these is a Corellian freighter?",
+        answers: [
+              { text: 'Serenity', correct: false},  
+              { text: "Battlestar Galactica", correct: false},
+              { text: "Millennium Falcon", correct: true} ,
+              { text: "Slave-1", correct: false}, 
+        ]
+    },
+    {
+        question: "What series features a protagonist named Jim Holden?",
+        answers: [
+              { text: 'The Expanse', correct: true},  
+              { text: "Star Trek: TNG", correct: false},
+              { text: "Doctor Who", correct: false} ,
+              { text: "Foundation", correct: false}, 
+        ]
+    },
+    {
+        question: "Ellen Ripley is the central character of what film series?",
+        answers: [
+              { text: 'Leviathan', correct: false},  
+              { text: "The Black Hole", correct: false},
+              { text: "Ender's Game", correct: false} ,
+              { text: "Alien", correct: true}, 
+        ]
+    },
+    {
+        question: "",
         answers: [
               { text: 'Star Trek', correct: false},  
               { text: "Battlestar Galactica", correct: false},
@@ -65,60 +101,9 @@ const questions = [
               { text: "Doctor Who", correct: true}, 
         ]
     },
-    {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
-        answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
-        ]
-    },
-    {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
-        answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
-        ]
-    },
-    {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
-        answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
-        ]
-    },
-    {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
-        answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
-        ]
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ]
-
 
 const questionElement = document.getElementById('question');
 const answerButton = document.getElementById('answer-buttons');
@@ -127,8 +112,8 @@ var timerElement = document.getElementById('timer')
 var time = questions.length * 20;
 var timerId;
 
-var sfxCorrect = new Audio(`assets/correct.wav`);
-var sfxIncorrect = new Audio(`assets/mixkit-wrong-answer-bass-buzzer-948.wav`)
+var sfxCorrect = new Audio(`assets/mixkit-sci-fi-plasma-gun-power-up-1679.wav`);
+var sfxIncorrect = new Audio(`assets/mixkit-wrong-answer-bass-buzzer-948.wav`);
 
 
 
@@ -181,7 +166,7 @@ function startQuiz(){
 
 
 
-                // removes previos answers
+                // removes previous answers
 
    function resetState(){
         nextButton.style.display ="none"
@@ -196,10 +181,12 @@ function startQuiz(){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     if(isCorrect){selectedBtn.classList.add("correct");
+        sfxCorrect.play();
         score++;
            }
    else{
     selectedBtn.classList.add("incorrect");
+        sfxIncorrect.play()
      }
 
    
