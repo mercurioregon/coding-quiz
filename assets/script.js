@@ -1,15 +1,4 @@
 
-// Timer, needs to statrt when you hit the button
-// timer starts at 120s and end at 0
-    // penalty of loss of 10 sec for incorrect answer
-
-
-
-
-
-
-// Questions  MAKE YOUR OWN QUESTIONS!!!
-
 const questions = [
     {
         question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
@@ -66,43 +55,41 @@ const questions = [
         ]
     },
     {
-        question: "",
+        question: "What Star Wars character owned a purple lightsaber?",
         answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
+              { text: 'Qui-Gon Jinn', correct: false},  
+              { text: "Obi-Wan Kenobi", correct: false},
+              { text: "Mace Windu", correct: true} ,
+              { text: "Yoda", correct: false}, 
         ]
     },
     {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
+        question: "What was Neo's real name in 'The Matrix'?",
         answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
+              { text: 'John Wick', correct: false},  
+              { text: "John Anderson", correct: false},
+              { text: "Johnny Smith", correct: false} ,
+              { text: "Thomas Anderson", correct: true}, 
         ]
     },
     {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
+        question: "What color is Spock's blood?",
         answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
+              { text: 'Red', correct: false},  
+              { text: "Green", correct: true},
+              { text: "Black", correct: false} ,
+              { text: "Burnt umber", correct: false}, 
         ]
     },
     {
-        question: "What classic series features a vessel known as 'Time and Relative Dimensions in Space'?",
+        question: "What film was secretly knows as 'Blue Harvest' during production?",
         answers: [
-              { text: 'Star Trek', correct: false},  
-              { text: "Battlestar Galactica", correct: false},
-              { text: "Buck Rogers", correct: false} ,
-              { text: "Doctor Who", correct: true}, 
+              { text: 'Star Trek II', correct: false},  
+              { text: "Avatar", correct: false},
+              { text: "The Fifth Element", correct: false} ,
+              { text: "Star Wars", correct: true}, 
         ]
     },
-
-
 ]
 
 const questionElement = document.getElementById('question');
@@ -115,12 +102,11 @@ var timerId;
 var sfxCorrect = new Audio(`assets/mixkit-sci-fi-plasma-gun-power-up-1679.wav`);
 var sfxIncorrect = new Audio(`assets/mixkit-wrong-answer-bass-buzzer-948.wav`);
 
-
-
+      // Sets first question and score to 0.
 
 let currentQuestionIndex = 0;
-let score = 0;
-        // sets first question and score to 0
+let score = 0
+      
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -130,43 +116,34 @@ function startQuiz(){
         showQuestion();
        timerElement.currentQuestion = time;
 
-
-
 }
-    // advances full questions thru quiz one by one and...
-
+    // Advances full questions thru quiz one by one.
     function showQuestion(){
         resetState();
         let currentQuestion = questions[currentQuestionIndex];
         let questionNo = currentQuestionIndex + 1;
         questionElement.innerHTML = questionNo + " ." + currentQuestion.question;
 
-            // updates answers and dispalys correct with other answers
-         currentQuestion.answers.forEach(answer => {
-            const button = document.createElement("button");         
-            button.innerHTML = answer.text;
+    // Updates answers and dispalys correct with other answers
+        currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");         
+        button.innerHTML = answer.text;
 
-                // appends HTML for new button
+    // Appends HTML for new button.
 
-
-            button.classList.add("btn");
-            answerButton.appendChild(button); 
-            if(answer.correct){
-                    button.dataset.correct = answer.correct;
+        button.classList.add("btn");
+        answerButton.appendChild(button); 
+        if(answer.correct){
+        button.dataset.correct = answer.correct;
                   
-                          }
-                         
-
-            button.addEventListener("click", selectAnswer);   
+        }
+                        
+           button.addEventListener("click", selectAnswer);   
 
          });  
    }
 
-
-
-
-
-                // removes previous answers
+        // / Removes previous answers.
 
    function resetState(){
         nextButton.style.display ="none"
@@ -175,8 +152,7 @@ function startQuiz(){
         };
 
    }
-
-            // determines correct or incorrect button clicks, adds to score
+         // Determines correct or incorrect button clicks, adds to score.
    function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -188,22 +164,17 @@ function startQuiz(){
     selectedBtn.classList.add("incorrect");
         sfxIncorrect.play()
      }
-
-   
-
-                // buttons disable if wrong choce is made
+  
+         // Buttons disable if wrong choce is made
    Array.from(answerButton.children).forEach(button =>  {
     if (button.dataset.correct === "true") {
         button.classList.add ("correct");
-
-
             }
             button.disabled = true;
    });
         nextButton.style.display = "block";
 
    }
-
    function clockTick() {
     time--;
     timerElement.questionElement = time;
@@ -213,7 +184,7 @@ function startQuiz(){
 
    }
 
-            // ends game and shows score, button changes to Try Again
+        // Ends game and shows score, button changes to Try Again
    function showScore() {
         resetState();
             questionElement.innerHTML = `Score - ${score}`;
@@ -239,14 +210,8 @@ function startQuiz(){
             }else{
                 startQuiz();
             }
-
-
    }
-   
-   
-   )
-
-
+    )
 startQuiz();
 
 

@@ -15,7 +15,7 @@
     <h1>HIGH SCORES</h1>
 
     <div id="highscores" class="flex-center flex-column">
-            <hi id="score">0</hi>
+            <h1 id="score">0</h1>
         <form>
                 <input
                 type="text"
@@ -23,7 +23,12 @@
                 id="initials"
                 placeholder="initials"/>
 
-                <button type="submit" class="btn">Save</button>
+                <button 
+                type="submit" 
+                class="btn"
+                id="saveScoreBtn"
+                onClick="saveHighScore(event)">Save</button>
+                
          </form>         
        </div>
    </div>
